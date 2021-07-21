@@ -5,8 +5,8 @@ const hostname = '0.0.0.0';
 const port = 80;
 
 const server = http.createServer(async(req, res) => {
-  const zone = await fetch('http://169.254.169.254/latest/meta-data/placement/availability-zone').then(res => res.json());
-  const region = await fetch('http://169.254.169.254/latest/meta-data/placement/region').then(res => res.json());
+  const zone = await fetch('http://169.254.169.254/latest/meta-data/placement/availability-zone').then(res => res.body);
+  const region = await fetch('http://169.254.169.254/latest/meta-data/placement/region').then(res => res.body);
 
   console.log('zone: ', zone);
   console.log('region: ', region);
