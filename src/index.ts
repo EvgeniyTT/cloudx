@@ -1,22 +1,16 @@
-import AWS from 'aws-sdk';
-
+const fetch = require('node-fetch');
 const http = require('http');
 
-const metadataService = new AWS.MetadataService();
-
-const hostname = '127.0.0.1';
+const hostname = '0.0.0.0';
 const port = 80;
 
-const server = http.createServer((req, res) => {
-  // metadataService.request("/latest/meta-data/<instance-id>", function(err, data) {
-  //   res.statusCode = 200;
-  //   res.setHeader('Content-Type', 'text/plain');
-  //   res.end(data.toString());
-  // });
+const server = http.createServer(async(req, res) => {
+  const zone = await fetch('http://169.254.169.254/latest/meta-data/placement/availability-zone');
+  const region = await fetch('http://169.254.169.254/latest/meta-data/placement/region');
 
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  res.end('HELLO WORLD!!!');
+  res.json({ zone, region });
 });
 
 server.listen(port, hostname, () => {
