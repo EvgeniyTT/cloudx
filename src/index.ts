@@ -10,7 +10,7 @@ const server = http.createServer(async(req, res) => {
 
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  res.json({ zone, region });
+  res.end(JSON.stringify({ zone, region }));
 });
 
 server.listen(port, hostname, () => {
