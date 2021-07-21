@@ -43,10 +43,10 @@ var server = http.createServer(function (req, res) { return __awaiter(void 0, vo
     var zone, region;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, fetch('http://169.254.169.254/latest/meta-data/placement/availability-zone').then(function (res) { return res.body; })];
+            case 0: return [4 /*yield*/, fetch('http://169.254.169.254/latest/meta-data/placement/availability-zone').then(function (res) { return res.text(); })];
             case 1:
                 zone = _a.sent();
-                return [4 /*yield*/, fetch('http://169.254.169.254/latest/meta-data/placement/region').then(function (res) { return res.body; })];
+                return [4 /*yield*/, fetch('http://169.254.169.254/latest/meta-data/placement/region').then(function (res) { return res.text(); })];
             case 2:
                 region = _a.sent();
                 console.log('zone: ', zone);
