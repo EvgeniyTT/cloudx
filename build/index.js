@@ -49,6 +49,8 @@ var server = http.createServer(function (req, res) { return __awaiter(void 0, vo
                 return [4 /*yield*/, fetch('http://169.254.169.254/latest/meta-data/placement/region')];
             case 2:
                 region = _a.sent();
+                console.log('zone: ', zone);
+                console.log('region: ', region);
                 res.statusCode = 200;
                 res.setHeader('Content-Type', 'text/plain');
                 res.end(JSON.stringify({ zone: zone, region: region }));
