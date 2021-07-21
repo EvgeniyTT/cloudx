@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "nodemon"
+    "start:dev": "nodemon",
+    "start": "node build/index.js",
+    "build": "tsc"
   },
   "author": "Yevhen Tataryn <yevhen_tataryn@epam.com>",
   "license": "ISC",

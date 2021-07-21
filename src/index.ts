@@ -5,7 +5,7 @@ const http = require('http');
 const metadataService = new AWS.MetadataService();
 
 const hostname = '127.0.0.1';
-const port = 3000;
+const port = 80;
 
 const server = http.createServer((req, res) => {
   // metadataService.request("/latest/meta-data/<instance-id>", function(err, data) {
